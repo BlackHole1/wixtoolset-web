@@ -36,18 +36,8 @@ jobs:
         shell: cmd
         run: ./src/build.cmd release ${{ secrets.GITHUB_TOKEN }}
 
-      # Do NOT publish logs on `master` branch as they may contain secrets in them.
-      - name: Save logs
-        if: github.ref != 'refs/heads/master' && (success() || failure())
-        uses: actions/upload-artifact@v3
+      - name: Save artifacts
+        uses: actions/upload-artifact@v2
         with:
-          name: logs_${{ github.run_id }}
-          path: build/logs/
-
-      - name: Deploy
-        if: github.ref == 'refs/heads/master' && success()
-        uses: azure/webapps-deploy@v2
-        with:
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
-          app-name: wixtoolset
-          package: ./build/deploy
+          name: wixweb
+          path: ./build/

@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'WiX Toolset',
   tagline: 'The most powerful set of tools available to create your Windows installation experience.',
-  url: 'https://wixtoolset.org/',
-  baseUrl: '/',
+  url: 'https://docs.bugs.cc/',
+  baseUrl: '/wixtoolset/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'favicon.ico',
@@ -127,11 +127,6 @@ const config = {
     }),
 
   scripts: [
-    {
-      'src': "https://plausible.io/js/script.js",
-      'defer': true,
-      'data-domain': "wixtoolset.org"
-    }
   ],
 
   plugins: [require.resolve("@cmfcmf/docusaurus-search-local")],
